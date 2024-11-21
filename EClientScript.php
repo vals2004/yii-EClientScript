@@ -435,4 +435,19 @@ class EClientScript extends CClientScript
 		$minified = JSMinPlus::minify($code);
 		return ($minified === false ? $code : $minified);
 	}
+
+	/**
+	 * Check is MetaTag already exists
+	 * @param string $property
+	 * @return bool
+	 */
+	public function isMetaTagAlreadyExist($property) : bool {
+		foreach ($this->metaTags as $meta) {
+			if ($meta['property'] == $property) {
+				return true;
+			}
+		}
+
+		return false;
+	}	
 }
