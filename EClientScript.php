@@ -405,7 +405,7 @@ class EClientScript extends CClientScript
 	{
 		$raw = '';
 		foreach ($files as $file) {
-			$raw .= "\0" . $file . "\0" . @filemtime($file);
+			$raw .= "\0" . $file; //. "\0" . @filemtime($file);
 		}
 		$ext = ($type === '' ? '' : '-' . $type) . '-' . substr(base64_encode(md5($raw, true)), 0, -2);
 		$pos = strrpos($name, '.');
